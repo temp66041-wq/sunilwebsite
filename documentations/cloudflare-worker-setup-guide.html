@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cloudflare Worker Website Setup Guide</title>
+  <style>
+    body {
+      max-width: 820px;
+      margin: 0 auto;
+      padding: 42px;
+      color: #17201f;
+      font-family: Arial, Helvetica, sans-serif;
+      line-height: 1.55;
+    }
+
+    h1 {
+      margin: 0 0 18px;
+      color: #0b4f4a;
+      font-size: 30px;
+      line-height: 1.15;
+    }
+
+    h2 {
+      margin: 28px 0 10px;
+      color: #0f766e;
+      font-size: 19px;
+    }
+
+    p {
+      margin: 8px 0;
+    }
+
+    ul,
+    ol {
+      margin: 8px 0 8px 24px;
+      padding: 0;
+    }
+
+    code,
+    pre {
+      font-family: Consolas, "Courier New", monospace;
+    }
+
+    code {
+      padding: 2px 5px;
+      background: #eef5f3;
+      border-radius: 4px;
+    }
+
+    pre {
+      overflow-wrap: break-word;
+      white-space: pre-wrap;
+      padding: 12px 14px;
+      background: #101918;
+      color: #ffffff;
+      border-radius: 8px;
+    }
+
+    .note {
+      padding: 12px 14px;
+      background: #fff3d6;
+      border-left: 4px solid #f59e0b;
+      border-radius: 6px;
+    }
+
+    .summary {
+      padding: 14px 16px;
+      background: #eef5f3;
+      border: 1px solid #dce7e4;
+      border-radius: 8px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Cloudflare Worker Website Setup Guide</h1>
+
+  <p>This guide explains the current setup of the SecureTech Solutions website from the beginning, using the latest version of the project.</p>
+
+  <h2>1. Website Created Locally</h2>
+  <p>The business website is called <strong>SecureTech Solutions</strong>.</p>
+  <p>Main files:</p>
+  <pre>index.html
+style.css
+script.js</pre>
+  <p>Cloudflare Worker support was added later:</p>
+  <pre>src/index.js
+wrangler.jsonc
+.assetsignore
+README.md
+.gitignore</pre>
+  <p>The current website includes a homepage, navigation, hero section, about section, services, pricing, contact form, AI demo section, responsive design, and Cloudflare Worker API routes.</p>
+
+  <h2>2. GitHub Repository</h2>
+  <p>The project was pushed to this GitHub repository:</p>
+  <pre>https://github.com/Mr-SliM-R/cloudflareweb</pre>
+  <p>The latest important commit is:</p>
+  <pre>d103d9b Add OpenAI Worker API demo</pre>
+  <p>The GitHub repo should contain:</p>
+  <pre>index.html
+style.css
+script.js
+src/index.js
+wrangler.jsonc
+.assetsignore
+README.md
+.gitignore
+functions/</pre>
+
+  <h2>3. Cloudflare Deployment Type</h2>
+  <p>The project is using <strong>Cloudflare Workers + Static Assets</strong>.</p>
+  <p>The deployed URL is:</p>
+  <pre>https://cloudflareweb.slim-raouafi92.workers.dev</pre>
+  <p>This is a Worker URL, not a normal Cloudflare Pages URL. That is OK for the current setup.</p>
+
+  <h2>4. What The Worker Does</h2>
+  <p>The Worker file is:</p>
+  <pre>src/index.js</pre>
+  <p>It does three things:</p>
+  <ol>
+    <li>Serves the website files.</li>
+    <li>Handles API routes.</li>
+    <li>Connects to the OpenAI API.</li>
+  </ol>
+  <p>These routes exist:</p>
+  <pre>GET  /api/status
+POST /api/contact
+POST /api/ai</pre>
+
+  <h2>5. First Test</h2>
+  <p>Open this in the browser:</p>
+  <pre>https://cloudflareweb.slim-raouafi92.workers.dev</pre>
+  <p>You should see the website.</p>
+  <p>Then open:</p>
+  <pre>https://cloudflareweb.slim-raouafi92.workers.dev/api/status</pre>
+  <p>You should see JSON confirming that the Worker is active.</p>
+
+  <h2>6. Why /api/ai Looked Like An Error</h2>
+  <p>Opening this URL directly in the browser sends a GET request:</p>
+  <pre>https://cloudflareweb.slim-raouafi92.workers.dev/api/ai</pre>
+  <p>But <code>/api/ai</code> only works with POST requests.</p>
+  <p>So this response is normal:</p>
+  <pre>{
+  "ok": false,
+  "message": "Use POST to ask the AI assistant."
+}</pre>
+  <p>That does not mean it is broken. It means the route exists.</p>
+
+  <h2>7. How To Test AI Properly</h2>
+  <p>Go to the homepage:</p>
+  <pre>https://cloudflareweb.slim-raouafi92.workers.dev</pre>
+  <p>Scroll to the section named <strong>AI demo</strong>.</p>
+  <p>Ask something like:</p>
+  <pre>What is Cloudflare WAF?</pre>
+  <p>Click <strong>Ask assistant</strong>. That is the correct way to test <code>/api/ai</code>.</p>
+
+  <h2>8. OpenAI Secret</h2>
+  <p>In Cloudflare, go to:</p>
+  <pre>Workers & Pages
+cloudflareweb
+Settings
+Variables and Secrets</pre>
+  <p>The current code checks both secret names:</p>
+  <pre>OpenAI API
+OPENAI_API_KEY</pre>
+  <p class="note">Recommended: add another secret named <code>OPENAI_API_KEY</code> with the same OpenAI API key value. This is a cleaner Worker variable name.</p>
+
+  <h2>9. What To Do Now</h2>
+  <ol>
+    <li>Open the deployed website.</li>
+    <li>Test Worker status.</li>
+    <li>Add the <code>OPENAI_API_KEY</code> secret if it is not already added.</li>
+    <li>Go back to the homepage.</li>
+    <li>Use the AI demo form.</li>
+    <li>Test the contact form.</li>
+  </ol>
+
+  <h2>10. If AI Does Not Work</h2>
+  <p>Check these items:</p>
+  <ul>
+    <li>Is the latest deployment active?</li>
+    <li>Is the secret added to the correct Worker?</li>
+    <li>Is the secret name exactly <code>OPENAI_API_KEY</code>?</li>
+    <li>Does the OpenAI account have API billing or credits enabled?</li>
+    <li>Is the OpenAI API key valid?</li>
+  </ul>
+
+  <h2>Simple Summary</h2>
+  <div class="summary">
+    <p>You now have:</p>
+    <pre>GitHub repo -> Cloudflare Worker -> Static website + dynamic API + OpenAI API</pre>
+    <p>Main URL:</p>
+    <pre>https://cloudflareweb.slim-raouafi92.workers.dev</pre>
+    <p>Use the website normally. Do not open <code>/api/ai</code> directly in the browser. Use the AI form on the homepage.</p>
+  </div>
+</body>
+</html>

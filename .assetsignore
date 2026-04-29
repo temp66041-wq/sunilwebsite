@@ -1,0 +1,16 @@
+# Files that should not be published as public static assets.
+.git
+.gitignore
+.assetsignore
+README.md
+wrangler.jsonc
+
+# Server-side code.
+src
+functions
+
+# Local development files.
+node_modules
+.wrangler
+.dev.vars*
+.env*

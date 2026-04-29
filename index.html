@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="SecureTech Solutions provides cybersecurity and cloud consulting for growing teams.">
+  <title>SecureTech Solutions | Cybersecurity and Cloud Consulting</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Header and navigation -->
+  <header class="site-header" id="top">
+    <nav class="navbar" aria-label="Main navigation">
+      <a class="brand" href="#top" aria-label="SecureTech Solutions home">
+        <span class="brand-mark" aria-hidden="true">S</span>
+        <span>SecureTech Solutions</span>
+      </a>
+
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="primary-navigation">
+        <span class="sr-only">Open navigation</span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+      </button>
+
+      <ul class="nav-links" id="primary-navigation">
+        <li><a href="#about">About</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#pricing">Pricing</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Deployment test banner for Cloudflare Pages auto-deploy checks -->
+  <div class="deployment-banner" aria-live="polite">
+    <strong>Cloudflare Pages dynamic test:</strong>
+    <span id="apiStatus">Checking Worker API status...</span>
+  </div>
+
+  <main>
+    <!-- Hero section -->
+    <section class="hero section" aria-labelledby="hero-title">
+      <div class="hero-content">
+        <p class="eyebrow">Cybersecurity and cloud consulting</p>
+        <h1 id="hero-title">Secure infrastructure for teams that need to move fast.</h1>
+        <p class="hero-text">
+          SecureTech Solutions helps businesses protect their data, modernize cloud systems,
+          and prepare for audits without slowing down daily work.
+        </p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="#contact">Book a consultation</a>
+          <a class="btn btn-secondary" href="#services">Explore services</a>
+        </div>
+        <div class="hero-stats" aria-label="Company highlights">
+          <div>
+            <strong>99.9%</strong>
+            <span>monitoring uptime</span>
+          </div>
+          <div>
+            <strong>48 hr</strong>
+            <span>risk review start</span>
+          </div>
+          <div>
+            <strong>120+</strong>
+            <span>cloud projects</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="hero-visual" aria-label="Animated security operations visual">
+        <canvas id="securityCanvas" width="720" height="520"></canvas>
+        <div class="status-panel panel-top">
+          <span class="status-dot"></span>
+          <span>Threat monitoring active</span>
+        </div>
+        <div class="status-panel panel-bottom">
+          <strong>Cloud posture</strong>
+          <span>92% optimized</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- About section -->
+    <section class="about section" id="about" aria-labelledby="about-title">
+      <div class="section-heading">
+        <p class="eyebrow">About us</p>
+        <h2 id="about-title">Practical security guidance for real business systems.</h2>
+      </div>
+      <div class="about-grid">
+        <p>
+          SecureTech Solutions is a fictional consulting firm focused on small and midsize
+          organizations that need clear cybersecurity and cloud strategy. Our consultants
+          translate technical risk into prioritized work your team can actually finish.
+        </p>
+        <p>
+          We support leadership, IT teams, and engineering groups with assessments,
+          implementation planning, policy creation, and cloud architecture reviews.
+          Every engagement includes plain-language reporting and measurable next steps.
+        </p>
+      </div>
+    </section>
+
+    <!-- Services section -->
+    <section class="services section" id="services" aria-labelledby="services-title">
+      <div class="section-heading">
+        <p class="eyebrow">Services</p>
+        <h2 id="services-title">Security and cloud programs built around your priorities.</h2>
+      </div>
+
+      <div class="service-grid">
+        <article class="service-card">
+          <span class="service-icon" aria-hidden="true">01</span>
+          <h3>Security Assessments</h3>
+          <p>Identify vulnerabilities, review access controls, and receive a practical remediation plan.</p>
+        </article>
+        <article class="service-card">
+          <span class="service-icon" aria-hidden="true">02</span>
+          <h3>Cloud Architecture</h3>
+          <p>Design resilient AWS, Azure, or Google Cloud environments with secure defaults.</p>
+        </article>
+        <article class="service-card">
+          <span class="service-icon" aria-hidden="true">03</span>
+          <h3>Compliance Readiness</h3>
+          <p>Prepare policies, evidence, and controls for SOC 2, ISO 27001, HIPAA, or internal audits.</p>
+        </article>
+        <article class="service-card">
+          <span class="service-icon" aria-hidden="true">04</span>
+          <h3>Incident Response</h3>
+          <p>Create response playbooks, improve alert triage, and run realistic tabletop exercises.</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- Pricing section -->
+    <section class="pricing section" id="pricing" aria-labelledby="pricing-title">
+      <div class="section-heading">
+        <p class="eyebrow">Pricing</p>
+        <h2 id="pricing-title">Simple consulting packages for every stage.</h2>
+      </div>
+
+      <div class="pricing-grid">
+        <article class="pricing-card">
+          <h3>Starter Review</h3>
+          <p class="price">$1,200</p>
+          <p class="price-note">One-time assessment</p>
+          <ul>
+            <li>Security baseline review</li>
+            <li>Cloud configuration checklist</li>
+            <li>Executive summary report</li>
+          </ul>
+          <a class="btn btn-secondary" href="#contact">Get started</a>
+        </article>
+
+        <article class="pricing-card featured">
+          <p class="popular-label">Most popular</p>
+          <h3>Growth Program</h3>
+          <p class="price">$3,800</p>
+          <p class="price-note">Monthly advisory</p>
+          <ul>
+            <li>Monthly risk reviews</li>
+            <li>Cloud hardening roadmap</li>
+            <li>Compliance evidence support</li>
+          </ul>
+          <a class="btn btn-primary" href="#contact">Choose Growth</a>
+        </article>
+
+        <article class="pricing-card">
+          <h3>Enterprise Shield</h3>
+          <p class="price">Custom</p>
+          <p class="price-note">Advanced consulting</p>
+          <ul>
+            <li>Dedicated security advisor</li>
+            <li>Incident response planning</li>
+            <li>Multi-cloud governance</li>
+          </ul>
+          <a class="btn btn-secondary" href="#contact">Request quote</a>
+        </article>
+      </div>
+    </section>
+
+    <!-- AI assistant demo section -->
+    <section class="ai-demo section" aria-labelledby="ai-title">
+      <div class="ai-demo-content">
+        <div>
+          <p class="eyebrow">AI demo</p>
+          <h2 id="ai-title">Ask a cloud security question.</h2>
+          <p>
+            This demo sends your question to a Cloudflare Worker, which calls the OpenAI API
+            using a protected Cloudflare secret.
+          </p>
+        </div>
+
+        <form class="ai-form" id="aiForm">
+          <label for="aiMessage">Question</label>
+          <textarea id="aiMessage" name="message" rows="4" maxlength="700" placeholder="Example: How should a small business start improving cloud security?" required></textarea>
+          <button class="btn btn-primary" type="submit">Ask assistant</button>
+          <p class="ai-response" id="aiResponse" role="status"></p>
+        </form>
+      </div>
+    </section>
+
+    <!-- Contact section and form -->
+    <section class="contact section" id="contact" aria-labelledby="contact-title">
+      <div class="contact-content">
+        <div>
+          <p class="eyebrow">Contact</p>
+          <h2 id="contact-title">Talk to a SecureTech consultant.</h2>
+          <p>
+            Share a few details about your environment and we will recommend a practical
+            first step for improving security, cloud reliability, or audit readiness.
+          </p>
+          <div class="contact-details">
+            <a href="mailto:hello@securetech.example">hello@securetech.example</a>
+            <a href="tel:+15550142877">+1 (555) 014-2877</a>
+          </div>
+        </div>
+
+        <form class="contact-form" id="contactForm" novalidate>
+          <div class="form-row">
+            <label for="name">Name</label>
+            <input type="text" id="name" name="name" placeholder="Alex Morgan" required>
+            <small class="error-message"></small>
+          </div>
+          <div class="form-row">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" placeholder="alex@company.com" required>
+            <small class="error-message"></small>
+          </div>
+          <div class="form-row">
+            <label for="service">Interested service</label>
+            <select id="service" name="service" required>
+              <option value="">Select a service</option>
+              <option>Security Assessment</option>
+              <option>Cloud Architecture</option>
+              <option>Compliance Readiness</option>
+              <option>Incident Response</option>
+            </select>
+            <small class="error-message"></small>
+          </div>
+          <div class="form-row">
+            <label for="message">Project details</label>
+            <textarea id="message" name="message" rows="5" placeholder="Tell us about your goals, timeline, and current tools." required></textarea>
+            <small class="error-message"></small>
+          </div>
+          <button class="btn btn-primary form-button" type="submit">Send message</button>
+          <p class="form-success" id="formSuccess" role="status"></p>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="footer-content">
+      <a class="brand" href="#top">
+        <span class="brand-mark" aria-hidden="true">S</span>
+        <span>SecureTech Solutions</span>
+      </a>
+      <p>Cybersecurity, cloud consulting, and compliance guidance for modern teams.</p>
+      <p class="footer-meta">&copy; 2026 SecureTech Solutions. Fictional demo website for Cloudflare Pages testing.</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
